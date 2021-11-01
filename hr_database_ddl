@@ -1,0 +1,176 @@
+-- drop tables to start in a clean state
+
+DROP TABLE IF EXISTS city CASCADE;
+DROP TABLE IF EXISTS state_loc CASCADE;
+DROP TABLE IF EXISTS office CASCADE;
+DROP TABLE IF EXISTS department CASCADE;
+DROP TABLE IF EXISTS job CASCADE;
+DROP TABLE IF EXISTS personal_info CASCADE;
+DROP TABLE IF EXISTS employee_salary CASCADE;
+DROP TABLE IF EXISTS employee_job_history CASCADE;
+
+
+-- create table city
+CREATE TABLE IF NOT EXISTS city(
+city_id serial primary key,
+name varchar(50)
+);
+
+-- create table state
+CREATE TABLE IF NOT EXISTS state_loc(
+state_id serial primary key,
+name varchar(50),
+city_id int
+);
+
+-- create table office
+CREATE TABLE IF NOT EXISTS office(
+office_id serial primary key,
+loc varchar(50),
+addr varchar(50),
+state_id int
+);
+
+-- create table department
+CREATE TABLE IF NOT EXISTS department(
+dept_id serial primary key,
+name varchar(50)
+);
+
+-- create table job
+CREATE TABLE IF NOT EXISTS job(
+job_id serial primary key,
+title varchar(50)
+);
+
+-- create table personal_info
+CREATE TABLE IF NOT EXISTS personal_info(
+emp_id varchar(50) primary key,
+emp_nm varchar(50),	
+email varchar(50),
+edn_level varchar(50),
+hire_dt date
+);
+
+-- create table employee_salary
+CREATE TABLE IF NOT EXISTS employee_salary(
+emp_id varchar(50),
+job_id int,
+salary float,
+primary key(emp_id, job_id)
+);
+
+-- create table employee_job_history
+CREATE TABLE IF NOT EXISTS employee_job_history(
+emp_id varchar(50),
+job_id int,
+office_id int,
+dept_id int,
+mngr_id varchar(50),	
+start_dt date,
+end_dt date,
+primary key(emp_id, job_id)
+);
+
+-- Adding foreign keys to the tables
+ALTER TABLE state_loc ADD CONSTRAINT state_city_fk FOREIGN KEY (city_id) REFERENCES city (city_id);
+ALTER TABLE office ADD CONSTRAINT office_state_fk FOREIGN KEY (state_id) REFERENCES state_loc (state_id);
+ALTER TABLE employee_salary ADD CONSTRAINT salary_emp_fk FOREIGN KEY (emp_id) REFERENCES personal_info (emp_id);
+ALTER TABLE employee_salary ADD CONSTRAINT salary_job_fk FOREIGN KEY (job_id) REFERENCES job(job_id);
+ALTER TABLE employee_job_history ADD CONSTRAINT hist_dept_fk FOREIGN KEY (dept_id) REFERENCES department(dept_id);
+ALTER TABLE employee_job_history ADD CONSTRAINT hist_emp_fk FOREIGN KEY (emp_id) REFERENCES personal_info(emp_id);
+ALTER TABLE employee_job_history ADD CONSTRAINT hist_mngr_fk FOREIGN KEY (emp_id) REFERENCES personal_info(emp_id);
+ALTER TABLE employee_job_history ADD CONSTRAINT hist_job_fk FOREIGN KEY (job_id) REFERENCES job(job_id);
+ALTER TABLE employee_job_history ADD CONSTRAINT hist_office_fk FOREIGN KEY (office_id) REFERENCES office(office_id);
+
+-- Load the data from stage table into the created tables
+INSERT INTO personal_info(
+SELECT DISTINCT emp_id, emp_nm, email, education_lvl, hire_dt
+FROM proj_stg
+);
+SELECT * FROM personal_info;
+
+INSERT INTO job(title)(
+SELECT DISTINCT job_title
+FROM proj_stg
+);
+SELECT * FROM job;
+
+INSERT INTO employee_salary(
+SELECT DISTINCT s.emp_id, j.job_id, s.salary
+FROM proj_stg AS s
+JOIN job AS j
+ON s.job_title = j.title
+);
+SELECT * FROM employee_salary;
+
+INSERT INTO department(name)(
+SELECT DISTINCT department_nm FROM proj_stg
+);
+SELECT * FROM department;
+
+INSERT INTO city(name)(
+SELECT DISTINCT city FROM proj_stg
+);
+SELECT * FROM city;
+
+INSERT INTO state_loc(city_id, name)(
+SELECT DISTINCT ci.city_id, ps.state
+FROM city AS ci
+JOIN proj_stg AS ps
+ON ps.city = ci.name	
+);
+SELECT * FROM state_loc;
+
+INSERT INTO office (state_id, loc, addr)(
+SELECT DISTINCT st.state_id, s.location, s.address
+FROM state_loc AS st
+JOIN proj_stg AS s
+ON s.state = st.name
+);
+SELECT * FROM office;
+
+INSERT INTO employee_job_history(
+SELECT DISTINCT s.emp_id, j.job_id, o.office_id, d.dept_id, e.emp_id as mngr_id, s.start_dt, s.end_dt
+From proj_stg AS s
+JOIN job AS j ON s.job_title = j.title
+JOIN department AS d ON s.department_nm = d.name	
+JOIN office AS o ON s.address = o.addr
+JOIN personal_info AS e On s.manager = e.emp_nm  	
+);
+SELECT * FROM employee_job_history;
+
+--CRUD #1
+SELECT e.emp_nm AS "Employee Name", j.title AS "Job Title", d.name AS "Department Name"
+FROM employee_job_history AS h
+JOIN personal_info AS e ON h.emp_id = e.emp_id
+JOIN department AS d ON h.dept_id = d.dept_id
+JOIN job AS j ON h.job_id = j.job_id;
+
+--CRUD #2
+INSERT INTO job (title) VALUES ('Web Programmers');
+SELECT * FROM job;
+
+--CRUD #3
+UPDATE job SET title = 'Web Developer' WHERE title = 'Web Programmers';
+SELECT * FROM job;
+
+--CRUD #4
+DELETE FROM job where title = 'Web Developer';
+SELECT * FROM job;
+
+--CRUD #5
+SELECT d.name as "Department Name", COUNT(*) AS "Number of Employees"
+FROM employee_job_history AS h
+JOIN personal_info AS e ON h.emp_id = e.emp_id
+JOIN department AS d ON h.dept_id = d.dept_id
+WHERE end_dt >= CURRENT_DATE
+GROUP BY d.name;
+
+--CRUD #6
+SELECT e.emp_nm AS "Employee Name", j.title AS "Job Title", d.name as "Department", m.emp_nm AS "Manager Name",
+h.start_dt as "Start Date", h.end_dt as "End Date"
+
+FROM personal_info
+
+
