@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-11-09T15:40:44.496Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="iJ7ptBERvKHmRSqIEZWo" version="15.7.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-09T15:48:09.378Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="18LATY_bk43nAhu1a8Df" version="15.7.0" type="github">
   <diagram name="Page-1" id="54c02804-9d69-ba3f-8aca-1021b27b8050">
     <mxGraphModel dx="2104" dy="1065" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -11,7 +11,7 @@
           <mxGeometry x="416.25" y="511" width="120" height="65" as="geometry" />
         </mxCell>
         <mxCell id="7c3a617817c5cf35-11" value="&lt;h1 style=&quot;font-size: 20px&quot;&gt;&lt;font style=&quot;font-size: 20px&quot;&gt;1. Confirm Interest&amp;nbsp;&lt;/font&gt;&lt;/h1&gt;&lt;p style=&quot;text-align: left&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;A colleague with high level of curiosity in data science topic &amp;amp; attention to detail for identifying problems and inconsistencies.&lt;/font&gt;&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeWidth=2;fillColor=none;gradientColor=none;fontSize=14;align=center;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="51.25" y="597.5" width="238.75" height="160" as="geometry" />
+          <mxGeometry x="35.63" y="597.5" width="238.75" height="160" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-2" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#434445;aspect=fixed;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.vvd.user_group;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="126.6" y="469.5" width="56.8" height="80" as="geometry" />
@@ -20,7 +20,7 @@
           <mxGeometry x="426.25" y="447" width="110" height="110" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-13" value="&lt;h1 style=&quot;font-size: 20px&quot;&gt;&lt;font style=&quot;font-size: 20px&quot;&gt;2. Instruction&lt;/font&gt;&lt;/h1&gt;&lt;p style=&quot;text-align: left&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;A brief material on the instruction, frequent Q&amp;amp;A to align expectation and distribution of the course contents.&lt;/font&gt;&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeWidth=2;fillColor=none;gradientColor=none;fontSize=14;align=center;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="370" y="597.5" width="246.25" height="140" as="geometry" />
+          <mxGeometry x="372.81" y="597.5" width="206.87" height="140" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-14" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.infographic.shadedCube;isoAngle=15;fillColor=#66B2FF;strokeColor=none;fontFamily=Helvetica;fontSize=20;align=center;strokeWidth=2;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="740.4599999999999" y="511" width="120" height="65" as="geometry" />
@@ -29,7 +29,7 @@
           <mxGeometry x="711.5099999999999" y="410" width="176.09" height="190" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-16" value="&lt;h1 style=&quot;font-size: 20px&quot;&gt;3. Read &amp;amp; Review&lt;/h1&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Early access to the self-paced courses. Read and review at your convenient time for the chapters of your choice.&lt;/font&gt;&lt;/div&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeWidth=2;fillColor=none;gradientColor=none;fontSize=14;align=center;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="680" y="597.5" width="240" height="140" as="geometry" />
+          <mxGeometry x="680.91" y="597.5" width="240" height="140" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-18" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.infographic.shadedCube;isoAngle=15;fillColor=#3399FF;strokeColor=none;fontFamily=Helvetica;fontSize=20;align=center;strokeWidth=2;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="95" y="834.8" width="120" height="63" as="geometry" />
@@ -41,7 +41,7 @@
           <mxGeometry x="32.75" y="924.8" width="244.5" height="210" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-23" value="&lt;h1 style=&quot;font-size: 20px&quot;&gt;&lt;font style=&quot;font-size: 20px&quot;&gt;5. Issue Creation&lt;/font&gt;&lt;/h1&gt;&lt;p style=&quot;text-align: left&quot;&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Create a GitHub issue on the repository with a set template. Any suggestions or comments that could improve the course are welcomed.&lt;/font&gt;&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeWidth=2;fillColor=none;gradientColor=none;fontSize=14;align=center;fontColor=default;" parent="1" vertex="1">
-          <mxGeometry x="356.25" y="924.8" width="240" height="180" as="geometry" />
+          <mxGeometry x="371.88" y="924.8" width="218.75" height="180" as="geometry" />
         </mxCell>
         <mxCell id="XuoufXyc1SX9v-AV3k-e-4" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.github;gradientColor=#DFDEDE;fillColor=default;strokeColor=default;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="444.4" y="785.6" width="73.7" height="72.4" as="geometry" />
