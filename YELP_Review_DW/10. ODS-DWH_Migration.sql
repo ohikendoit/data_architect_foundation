@@ -158,7 +158,9 @@ CREATE OR REPLACE TABLE FACT_CLIMATE_REVIEW(
     max_temperature float,
     precipitation float,
     stars float,
-    primary key (date, review_id, business_id)
+    primary key (date, review_id)
+    foreign key (business_id) REFERENCES DIM_REVIEW(business_id)
+    foreign key (user_id) REFERENCES DIM_REVIEW(user_id)
 );
 
 INSERT INTO FACT_CLIMATE_REVIEW
